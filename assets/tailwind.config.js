@@ -1,17 +1,13 @@
 module.exports = {
-  purge: {
-    enabled: process.env.MIX_ENV === "prod",
-    content: [
-      "../lib/**/*.eex",
-      "../lib/**/*.leex",
-      "../lib/**/*_view.ex"
-    ],
-    options: {
-      whitelist: [/phx/, /nprogress/]
-    }
-  },
+  mode: 'jit',
+  purge: [
+    "../lib/**/*.eex",
+    "../lib/**/*.leex",
+    "../lib/**/*_view.ex",
+    "../lib/**/views/*.ex"
+  ],
   plugins: [
     require('@tailwindcss/forms'),
     require('@tailwindcss/typography')
   ]
-}
+};
