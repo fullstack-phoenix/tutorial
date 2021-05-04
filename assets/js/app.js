@@ -19,7 +19,13 @@ import {LiveSocket} from "phoenix_live_view"
 import "alpinejs"
 
 let Hooks = {}
-// Hooks.Example = { mounted() { } }
+Hooks.Toggle = {
+  mounted() {
+    this.el.addEventListener("toggle-change", event => {
+      this.pushEvent('toggle-change', event.detail)
+    })
+  }
+}
 
 let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
 let liveSocket = new LiveSocket("/live", Socket, {
