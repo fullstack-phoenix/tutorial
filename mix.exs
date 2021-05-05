@@ -41,7 +41,7 @@ defmodule Tutorial.MixProject do
       {:ecto_sql, "~> 3.4"},
       {:postgrex, ">= 0.0.0"},
       {:phoenix_live_view, "~> 0.15.0"},
-      {:floki, ">= 0.27.0", only: :test},
+      {:floki, ">= 0.27.0"},
       {:phoenix_html, "~> 2.11"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:phoenix_live_dashboard, "~> 0.4"},
@@ -52,6 +52,8 @@ defmodule Tutorial.MixProject do
       {:plug_cowboy, "~> 2.0"},
 
       # Additional packages
+      {:bamboo, "~> 1.5"},
+      {:premailex, "~> 0.3.0"},
 
       {:pow, "~> 1.0.22"},
       {:bcrypt_elixir, "~> 2.0"},

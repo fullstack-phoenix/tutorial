@@ -34,6 +34,10 @@ config :tutorial, :pow,
   web_module: TutorialWeb,
   mailer_backend: TutorialWeb.Pow.Mailer
 
+config :tutorial, Tutorial.Mailer,
+  adapter: Bamboo.MandrillAdapter,
+  api_key: "my_api_key"
+
 config :kaffy,
    otp_app: :tutorial,
    ecto_repo: Tutorial.Repo,

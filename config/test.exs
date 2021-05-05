@@ -20,3 +20,6 @@ config :tutorial, TutorialWeb.Endpoint,
 
 # Print only warnings and errors during test
 config :logger, level: :warn
+
+config :tutorial, Tutorial.Mailer,
+  adapter: Bamboo.TestAdapter
