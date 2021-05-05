@@ -12,6 +12,14 @@ defmodule Tutorial.Emails do
     |> premail()
   end
 
+  def digest_email(users) do
+    base_email()
+    |> subject("Daily Digest")
+    |> to("myself@example.com")
+    |> render("daily_digest.html", title: "Daily Digest Email", users: users)
+    |> premail()
+  end
+
   defp base_email do
     new_email()
     |> from(@from)

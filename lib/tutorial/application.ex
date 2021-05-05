@@ -14,9 +14,10 @@ defmodule Tutorial.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: Tutorial.PubSub},
       # Start the Endpoint (http/https)
-      TutorialWeb.Endpoint
+      TutorialWeb.Endpoint,
       # Start a worker by calling: Tutorial.Worker.start_link(arg)
       # {Tutorial.Worker, arg}
+      {Oban, oban_config()}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
@@ -30,5 +31,9 @@ defmodule Tutorial.Application do
   def config_change(changed, _new, removed) do
     TutorialWeb.Endpoint.config_change(changed, removed)
     :ok
+  end
+
+  defp oban_config do
+    Application.fetch_env!(:tutorial, Oban)
   end
 end

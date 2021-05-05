@@ -1,0 +1,9 @@
+<%= if Enum.count(@users) == 0 do %>
+  <h1>No users signed up since yesterday</h1>
+<% else %>
+  <h1>These users have joined since yesterday</h1>
+
+  <%= for user <- @users do %>
+    <%= user.email %><br>
+  <% end %>
+<% end %>

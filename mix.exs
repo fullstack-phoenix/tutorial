@@ -61,6 +61,7 @@ defmodule Tutorial.MixProject do
       {:credo, "~> 1.5", only: [:dev, :test], runtime: false},
       {:sobelow, "~> 0.8", only: :dev},
       {:ecto_psql_extras, "~> 0.2"},
+      {:oban, "~> 2.6.1"}
     ]
   end
 

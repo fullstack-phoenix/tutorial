@@ -23,3 +23,5 @@ config :logger, level: :warn
 
 config :tutorial, Tutorial.Mailer,
   adapter: Bamboo.TestAdapter
+
+config :tutorial, Oban, queues: false, plugins: false
