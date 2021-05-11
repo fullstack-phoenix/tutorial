@@ -10,7 +10,7 @@ defmodule Tutorial.Users do
   def list_users_from_last_day do
     from(
       u in User,
-      where: fragment("? > NOW() - INTERVAL '1 DAY'", u.inserted_at)
+      where: u.inserted_at > ago(1, "day")
     )
     |> Repo.all()
   end
