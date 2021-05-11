@@ -1,2 +1,8 @@
-<section class="prose">
+<section class="">
+  <%= f = form_for @changeset, "#", phx_change: "update" %>
+    <%= label f, :assignee, class: "block text-sm font-medium text-gray-700" %>
+    <%= select f, :assignee, Enum.map(@users, &(&1.name)), class: "block w-full px-3 py-2 mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" %>
+
+    <%= live_component @socket, CustomSelectComponent, id: "sample-1", f: f, name: :assignee, options: @users %>
+  </form>
 </section>

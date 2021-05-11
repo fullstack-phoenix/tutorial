@@ -17,8 +17,10 @@ import {Socket} from "phoenix"
 import NProgress from "nprogress"
 import {LiveSocket} from "phoenix_live_view"
 import "alpinejs"
+import {CustomSelect} from "./custom_select"
 
 let Hooks = {}
+Hooks.CustomSelect = CustomSelect
 // Hooks.Example = { mounted() { } }
 
 let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
