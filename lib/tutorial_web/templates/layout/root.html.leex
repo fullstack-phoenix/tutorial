@@ -18,6 +18,7 @@
         <div class="flex items-center space-x-1">
           <div class="hidden md:inline-flex space-x-1">
             <%= link "Home", to: Routes.page_path(@conn, :index), class: "btn btn-sm btn-link" %>
+            <%= link "Demo", to: Routes.demo_path(@conn, :index), class: "btn btn-sm btn-link" %>
             <%= if function_exported?(Routes, :live_dashboard_path, 2) do %>
               <%= link "LiveDashboard", to: Routes.live_dashboard_path(@conn, :home), class: "btn btn-sm btn-link" %>
             <% end %>
