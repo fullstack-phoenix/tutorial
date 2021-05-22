@@ -2,4 +2,35 @@
   Demo
 </h1>
 
+<div>
+  <button
+    phx-click="open"
+    phx-target="#modal-one"
+    type="button"
+    class="mr-8 btn btn-primary">
+    Open modal one
+  </button>
 
+  <button
+    phx-click="open"
+    phx-target="#modal-two"
+    type="button"
+    class="btn btn-primary">
+    Open modal two
+  </button>
+</div>
+
+<%= live_component @socket, TutorialWeb.Components.Modal, id: "modal-one", title: "Modal one title" do %>
+  Handling this click will be done in this Demo LiveView and not the modal component<br>
+  <button
+    phx-click="close-modal"
+    phx-value-modal-id="<%= @modal_id %>"
+    type="button"
+    class="btn btn-primary">
+    Close
+  </button>
+<% end %>
+
+<%= live_component @socket, TutorialWeb.Components.Modal, id: "modal-two", title: "Modal two title" do %>
+ MODAL TWO
+<% end %>

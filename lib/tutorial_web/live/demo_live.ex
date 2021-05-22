@@ -8,4 +8,14 @@ defmodule TutorialWeb.DemoLive do
       socket
     }
   end
+
+  @impl true
+  def handle_event("close-modal", %{"modal-id" => id}, socket) do
+    # send_update TutorialWeb.Components.Modal, id: id, state: "CLOSED"
+    {
+      :noreply,
+      socket
+      |> push_event("close", %{id: id})
+    }
+  end
 end
