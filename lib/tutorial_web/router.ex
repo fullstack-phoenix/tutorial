@@ -1,6 +1,5 @@
 defmodule TutorialWeb.Router do
   use TutorialWeb, :router
-  use Kaffy.Routes #, scope: "/admin", pipe_through: [:some_plug, :authenticate]
   use Pow.Phoenix.Router
   use Pow.Extension.Phoenix.Router,
     extensions: [PowResetPassword, PowEmailConfirmation]
@@ -40,6 +39,17 @@ defmodule TutorialWeb.Router do
 
     live "/", PageLive, :index
     live "/demo", DemoLive, :index
+  end
+
+  scope "/admin", TutorialWeb.Admin, as: :admin do
+    pipe_through :browser
+
+    live "/products", ProductLive.Index, :index
+    live "/products/new", ProductLive.Index, :new
+    live "/products/:id/edit", ProductLive.Index, :edit
+
+    live "/products/:id", ProductLive.Show, :show
+    live "/products/:id/show/edit", ProductLive.Show, :edit
   end
 
   # Other scopes may use custom stacks.

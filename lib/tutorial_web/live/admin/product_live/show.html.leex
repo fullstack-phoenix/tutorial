@@ -1,0 +1,29 @@
+<section class="prose">
+  <h1>Show Product</h1>
+
+  <ul>
+
+    <li>
+      <strong>Name:</strong>
+      <%= @product.name %>
+    </li>
+
+    <li>
+      <strong>Archived at:</strong>
+      <%= @product.archived_at %>
+    </li>
+
+  </ul>
+
+  <span><%= live_patch "Edit", to: Routes.admin_product_show_path(@socket, :edit, @product), class: "button" %></span>
+  <span><%= live_redirect "Back", to: Routes.admin_product_index_path(@socket, :index) %></span>
+</section>
+
+<%= if @live_action in [:edit] do %>
+  <%= live_modal @socket, TutorialWeb.Admin.ProductLive.FormComponent,
+    id: @product.id,
+    title: @page_title,
+    action: @live_action,
+    product: @product,
+    return_to: Routes.admin_product_show_path(@socket, :show, @product) %>
+<% end %>
