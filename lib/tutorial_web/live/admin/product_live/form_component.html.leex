@@ -6,9 +6,24 @@
   phx_change: "validate",
   phx_submit: "save" %>
 
-  <%= label f, :name %>
-  <%= text_input f, :name, class: "form-control" %>
-  <%= error_tag f, :name %>
+  <div class="mb-4">
+    <%= label f, :name %>
+    <%= text_input f, :name, class: "form-control" %>
+    <%= error_tag f, :name %>
+  </div>
+
+  <%= inputs_for f, :data, fn ff -> %>
+    <div class="mb-4">
+      <%= label ff, :size %>
+      <%= text_input ff, :size, class: "form-control" %>
+      <%= error_tag ff, :size %>
+    </div>
+    <div class="mb-4">
+      <%= label ff, :color %>
+      <%= text_input ff, :color, class: "form-control" %>
+      <%= error_tag ff, :color %>
+    </div>
+  <% end %>
 
   <div class="mt-6">
     <%= submit "Save", class: "btn btn-primary", phx_disable_with: "Saving..." %>

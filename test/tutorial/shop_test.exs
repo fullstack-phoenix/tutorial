@@ -16,7 +16,7 @@ defmodule Tutorial.ShopTest do
         |> Enum.into(@valid_attrs)
         |> Shop.create_product()
 
-      product
+      Shop.get_product!(product.id)
     end
 
     test "list_shop_products/0 returns all shop_products" do
@@ -61,6 +61,19 @@ defmodule Tutorial.ShopTest do
     test "change_product/1 returns a product changeset" do
       product = product_fixture()
       assert %Ecto.Changeset{} = Shop.change_product(product)
+    end
+
+    test "create_product/1 with data attributes casts and updates embedded data" do
+      valid_attrs = Map.put(@valid_attrs, :data, %{size: "L", color: "green"})
+
+      assert {:ok, %Product{} = product} = Shop.create_product(valid_attrs)
+      assert product.data.size == "L"
+      assert product.data.color == "green"
+
+      update_attrs = Map.put(@valid_attrs, :data, %{size: "M", color: "red"})
+      assert {:ok, %Product{} = product} = Shop.update_product(product, update_attrs)
+      assert product.data.size == "M"
+      assert product.data.color == "red"
     end
   end
 end
