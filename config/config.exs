@@ -15,7 +15,7 @@ config :tutorial, TutorialWeb.Endpoint,
   url: [host: "localhost"],
   render_errors: [view: TutorialWeb.ErrorView, accepts: ~w(html json), layout: false],
   pubsub_server: Tutorial.PubSub,
-  live_view: [signing_salt: "R9pDsgA+"]
+  live_view: [signing_salt: "PnCRiT+7"]
 
 # Configures the mailer
 #

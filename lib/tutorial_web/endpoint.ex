@@ -7,7 +7,7 @@ defmodule TutorialWeb.Endpoint do
   @session_options [
     store: :cookie,
     key: "_tutorial_key",
-    signing_salt: "PQiFey9T"
+    signing_salt: "qPAwranM"
   ]
 
   socket "/socket", TutorialWeb.UserSocket,
