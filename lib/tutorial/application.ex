@@ -17,7 +17,7 @@ defmodule Tutorial.Application do
       TutorialWeb.Endpoint,
       # Start a worker by calling: Tutorial.Worker.start_link(arg)
       # {Tutorial.Worker, arg}
-      {Oban, oban_config()}
+      {Oban, oban_config()},
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
@@ -33,7 +33,7 @@ defmodule Tutorial.Application do
     :ok
   end
 
-  defp oban_config do
+  defp oban_config do # Add this line
     Application.fetch_env!(:tutorial, Oban)
   end
 end

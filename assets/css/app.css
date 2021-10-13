@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "../node_modules/nprogress/nprogress.css";
-
 /* For Phoenix Live reload script */
 [hidden] {
   display: none;
@@ -17,10 +15,9 @@
 /* BUTTONS */
 .btn {
   @apply rounded border border-transparent focus:outline-none;
-
-  &.btn-primary {
-    @apply text-white bg-blue-500 py-2 px-6  hover:bg-blue-600 text-lg;
-  }
+}
+.btn.btn-primary {
+  @apply text-white bg-blue-500 py-2 px-6 hover:bg-blue-600 text-lg;
 }
 
 /* LiveView specific classes for your customizations */

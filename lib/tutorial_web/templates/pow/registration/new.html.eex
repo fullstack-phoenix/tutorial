@@ -23,12 +23,6 @@
     <%= error_tag f, :password %>
   </div>
 
-  <div class="mt-4">
-    <%= label f, :password_confirmation, class: "block text-gray-600 dark:text-gray-200 text-sm font-medium mb-2" %>
-    <%= password_input f, :password_confirmation, class: "form-control" %>
-    <%= error_tag f, :password_confirmation %>
-  </div>
-
   <div class="mt-8">
     <%= submit "Register", class: "btn btn-primary w-full" %>
   </div>
