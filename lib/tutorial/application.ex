@@ -18,6 +18,7 @@ defmodule Tutorial.Application do
       # Start a worker by calling: Tutorial.Worker.start_link(arg)
       # {Tutorial.Worker, arg}
       {Oban, oban_config()},
+      {Finch, name: MyFinch},
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
