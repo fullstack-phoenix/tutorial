@@ -38,6 +38,12 @@ defmodule TutorialWeb.Router do
     pipe_through :browser
 
     live "/", PageLive, :index
+    live "/customers", CustomerLive.Index, :index
+    live "/customers/new", CustomerLive.Index, :new
+    live "/customers/:id/edit", CustomerLive.Index, :edit
+
+    live "/customers/:id", CustomerLive.Show, :show
+    live "/customers/:id/show/edit", CustomerLive.Show, :edit
   end
 
   # Other scopes may use custom stacks.

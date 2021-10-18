@@ -63,6 +63,7 @@ defmodule Tutorial.MixProject do
       {:ecto_psql_extras, "~> 0.7"},
 
       {:finch, "~> 0.8"},
+      {:faker, "~> 0.16.0"},
     ]
   end
 

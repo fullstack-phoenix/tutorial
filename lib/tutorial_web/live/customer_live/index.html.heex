@@ -1,0 +1,51 @@
+<div class="mb-12 prose">
+  <h1>Listing Customers</h1>
+</div>
+
+<%= if @live_action in [:new, :edit] do %>
+  <%= live_modal TutorialWeb.CustomerLive.FormComponent,
+    id: @customer.id || :new,
+    title: @page_title,
+    action: @live_action,
+    customer: @customer,
+    return_to: Routes.customer_index_path(@socket, :index) %>
+<% end %>
+
+<div class="overflow-x-auto">
+  <table class="table w-full table-compact">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Zip</th>
+        <th>City</th>
+        <th>Phone</th>
+        <th>Longitude</th>
+        <th>Latitude</th>
+
+        <th></th>
+      </tr>
+    </thead>
+    <tbody id="customers">
+      <%= for customer <- @customers do %>
+        <tr id={"customer-#{customer.id}"}>
+          <td><%= customer.name %></td>
+          <td><%= customer.address %></td>
+          <td><%= customer.zip %></td>
+          <td><%= customer.city %></td>
+          <td><%= customer.phone %></td>
+          <td><%= customer.longitude %></td>
+          <td><%= customer.latitude %></td>
+
+          <td>
+            <span><%= live_redirect "Show", to: Routes.customer_show_path(@socket, :show, customer) %></span>
+            <span><%= live_patch "Edit", to: Routes.customer_index_path(@socket, :edit, customer) %></span>
+            <span><%= link "Delete", to: "#", phx_click: "delete", phx_value_id: customer.id, data: [confirm: "Are you sure?"] %></span>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<span><%= live_patch "New Customer", to: Routes.customer_index_path(@socket, :new) %></span>

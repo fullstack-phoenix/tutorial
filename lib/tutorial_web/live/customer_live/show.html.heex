@@ -1,0 +1,52 @@
+<h1>Show Customer</h1>
+
+<%= if @live_action in [:edit] do %>
+  <%= live_modal TutorialWeb.CustomerLive.FormComponent,
+    id: @customer.id,
+    title: @page_title,
+    action: @live_action,
+    customer: @customer,
+    return_to: Routes.customer_show_path(@socket, :show, @customer) %>
+<% end %>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @customer.name %>
+  </li>
+
+  <li>
+    <strong>Address:</strong>
+    <%= @customer.address %>
+  </li>
+
+  <li>
+    <strong>Zip:</strong>
+    <%= @customer.zip %>
+  </li>
+
+  <li>
+    <strong>City:</strong>
+    <%= @customer.city %>
+  </li>
+
+  <li>
+    <strong>Phone:</strong>
+    <%= @customer.phone %>
+  </li>
+
+  <li>
+    <strong>Longitude:</strong>
+    <%= @customer.longitude %>
+  </li>
+
+  <li>
+    <strong>Latitude:</strong>
+    <%= @customer.latitude %>
+  </li>
+
+</ul>
+
+<span><%= live_patch "Edit", to: Routes.customer_show_path(@socket, :edit, @customer), class: "button" %></span> |
+<span><%= live_redirect "Back", to: Routes.customer_index_path(@socket, :index) %></span>
