@@ -326,10 +326,10 @@ cssesc@^3.0.0:
   resolved "https://registry.yarnpkg.com/cssesc/-/cssesc-3.0.0.tgz#37741919903b868565e1c09ea747445cd18983ee"
   integrity sha512-/Tb/JcjK111nNScGob5MNtsntNM1aCNUDipB/TkwZFhyDrrE47SOx/18wF2bbjgc3ZzCSKW1T5nt5EbFoAz/Vg==
 
-daisyui@^1.14.5:
-  version "1.14.5"
-  resolved "https://registry.yarnpkg.com/daisyui/-/daisyui-1.14.5.tgz#2588b95d21654426f8c81995a90260cb2b683ad1"
-  integrity sha512-/1GVhvqaD5Gk+VwRV7X5cVPJGe2uUOZeTGb4UtvmiTmis9EtOqsGpZJ7cBPzZLBOvq57tRUtAk8YNmEC3YSIMA==
+daisyui@^1.21.0:
+  version "1.21.0"
+  resolved "https://registry.yarnpkg.com/daisyui/-/daisyui-1.21.0.tgz#627239e076d05eddb164ef55823c35af15c878d9"
+  integrity sha512-sdqSI6v/Xc6OsBrZbBKqZKpOCuQyc1foq9s5ZqT8Qdp92kIbR/FBNfTethDjLpvYBPpsohHLCvC0ddWr2OotYA==
 
 defined@^1.0.0:
   version "1.0.0"
