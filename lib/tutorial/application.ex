@@ -19,6 +19,7 @@ defmodule Tutorial.Application do
       # {Tutorial.Worker, arg}
       {Oban, oban_config()},
       {Finch, name: MyFinch},
+      {Cachex, name: :data_cache},
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

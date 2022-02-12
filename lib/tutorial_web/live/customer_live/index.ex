@@ -1,17 +1,29 @@
 defmodule TutorialWeb.CustomerLive.Index do
   use TutorialWeb, :live_view
 
+  import TutorialWeb.Live.DataTable
+
+  alias TutorialWeb.Live.InitAssigns
+
   alias Tutorial.Customers
   alias Tutorial.Customers.Customer
 
+  on_mount {InitAssigns, :load_customers}
+
   @impl true
   def mount(_params, _session, socket) do
-    {:ok, assign(socket, :customers, list_customers())}
+    {:ok, socket}
   end
 
   @impl true
   def handle_params(params, _url, socket) do
-    {:noreply, apply_action(socket, socket.assigns.live_action, params)}
+    {
+      :noreply,
+      socket
+      |> assign(:params, params)
+      |> assign(:customers, list_customers(params))
+      |> apply_action(socket.assigns.live_action, params)
+    }
   end
 
   defp apply_action(socket, :edit, %{"id" => id}) do
@@ -36,11 +48,15 @@ defmodule TutorialWeb.CustomerLive.Index do
   def handle_event("delete", %{"id" => id}, socket) do
     customer = Customers.get_customer!(id)
     {:ok, _} = Customers.delete_customer(customer)
+    InitAssigns.expire_cache()
 
-    {:noreply, assign(socket, :customers, list_customers())}
+    {:noreply, assign(socket, :customers, list_customers(socket.assigns.params))}
   end
 
-  defp list_customers do
-    Customers.list_customers()
+  defp list_customers(params) do
+    hash = :erlang.phash2(params)
+    InitAssigns.with_cache("customers-cache-#{hash}", (fn ->
+      Customers.list_customers(params)
+    end))
   end
 end

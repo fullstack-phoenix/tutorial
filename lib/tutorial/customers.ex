@@ -4,9 +4,12 @@ defmodule Tutorial.Customers do
   """
 
   import Ecto.Query, warn: false
+  import TutorialWeb.Live.DataTable, only: [sort: 1]
   alias Tutorial.Repo
 
   alias Tutorial.Customers.Customer
+
+  @pagination [page_size: 10]
 
   @doc """
   Returns the list of customers.
@@ -20,6 +23,14 @@ defmodule Tutorial.Customers do
   def list_customers do
     Repo.all(Customer)
   end
+
+def list_customers(params) do
+  from(
+    c in Customer,
+    order_by: ^sort(params)
+  )
+  |> Scrivener.paginate(Scrivener.Config.new(Repo, @pagination, params))
+end
 
   @doc """
   Gets a single customer.

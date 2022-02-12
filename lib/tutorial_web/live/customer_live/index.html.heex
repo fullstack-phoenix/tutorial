@@ -15,13 +15,13 @@
   <table class="table w-full table-compact">
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Address</th>
-        <th>Zip</th>
-        <th>City</th>
-        <th>Phone</th>
-        <th>Longitude</th>
-        <th>Latitude</th>
+        <th><%= table_link(@params, "Name", :name) %></th>
+        <th><%= table_link(@params, "Address", :address) %></th>
+        <th><%= table_link(@params, "Zip", :zip) %></th>
+        <th><%= table_link(@params, "City", :city) %> </th>
+        <th><%= table_link(@params, "Phone", :phone) %></th>
+        <th><%= table_link(@params, "Longitude", :longitude) %></th>
+        <th><%= table_link(@params, "Latitude", :latitude) %></th>
 
         <th></th>
       </tr>
@@ -48,4 +48,6 @@
   </table>
 </div>
 
-<span><%= live_patch "New Customer", to: Routes.customer_index_path(@socket, :new) %></span>
+<%= live_component TutorialWeb.Live.PaginationComponent, params: @params, pagination_data: @customers %>
+
+<span><% live_patch "New Customer", to: Routes.customer_index_path(@socket, :new) %></span>

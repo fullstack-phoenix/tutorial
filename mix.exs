@@ -33,15 +33,15 @@ defmodule Tutorial.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:phoenix, "~> 1.6.2"},
+      {:phoenix, "~> 1.6.5"},
       {:phoenix_ecto, "~> 4.4"},
       {:ecto_sql, "~> 3.6"},
       {:postgrex, ">= 0.0.0"},
-      {:phoenix_html, "~> 3.0"},
+      {:phoenix_html, "~> 3.1"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
-      {:phoenix_live_view, "~> 0.16.3"},
+      {:phoenix_live_view, "~> 0.17.6"},
       {:floki, ">= 0.30.0"},
-      {:phoenix_live_dashboard, "~> 0.5"},
+      {:phoenix_live_dashboard, "~> 0.6"},
       {:esbuild, "~> 0.2", runtime: Mix.env() == :dev},
       {:swoosh, "~> 1.3"},
       {:telemetry_metrics, "~> 0.6"},
@@ -55,6 +55,8 @@ defmodule Tutorial.MixProject do
       # Oban for background jobs
       {:oban, "~> 2.9.2"},
 
+      {:cachex, "~> 3.4.0"},
+
       {:pow, "~> 1.0.22"},
       {:bcrypt_elixir, "~> 2.0"},
 
@@ -64,6 +66,8 @@ defmodule Tutorial.MixProject do
 
       {:finch, "~> 0.8"},
       {:faker, "~> 0.16.0"},
+
+      {:scrivener_ecto, "~> 2.0"},
     ]
   end
 
