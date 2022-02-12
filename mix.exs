@@ -58,7 +58,7 @@ defmodule Tutorial.MixProject do
       {:cachex, "~> 3.4.0"},
 
       {:pow, "~> 1.0.22"},
-      {:bcrypt_elixir, "~> 2.0"},
+      {:bcrypt_elixir, "~> 3.0"},
 
       {:credo, "~> 1.5", only: [:dev, :test], runtime: false},
       {:sobelow, "~> 0.8", only: :dev},
