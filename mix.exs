@@ -65,9 +65,11 @@ defmodule Tutorial.MixProject do
       {:ecto_psql_extras, "~> 0.7"},
 
       {:finch, "~> 0.8"},
-      {:faker, "~> 0.16.0"},
+      {:faker, "~> 0.17.0"},
 
       {:scrivener_ecto, "~> 2.0"},
+
+      {:csv, "~> 2.4"},
     ]
   end
 
