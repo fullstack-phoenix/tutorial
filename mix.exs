@@ -68,6 +68,8 @@ defmodule Tutorial.MixProject do
       {:faker, "~> 0.16.0"},
 
       {:scrivener_ecto, "~> 2.0"},
+
+      {:csv, "~> 2.4"},
     ]
   end
 

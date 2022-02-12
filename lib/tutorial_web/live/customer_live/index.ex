@@ -2,6 +2,7 @@ defmodule TutorialWeb.CustomerLive.Index do
   use TutorialWeb, :live_view
 
   import TutorialWeb.Live.DataTable
+  import TutorialWeb.Live.SharedComponents
 
   alias TutorialWeb.Live.InitAssigns
 

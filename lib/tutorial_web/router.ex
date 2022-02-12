@@ -44,6 +44,8 @@ defmodule TutorialWeb.Router do
 
     live "/customers/:id", CustomerLive.Show, :show
     live "/customers/:id/show/edit", CustomerLive.Show, :edit
+
+    post "/export", ExportController, :create
   end
 
   # Other scopes may use custom stacks.
