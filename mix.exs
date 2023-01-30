@@ -53,7 +53,7 @@ defmodule Tutorial.MixProject do
       # Additional packages
 
       # Oban for background jobs
-      {:oban, "~> 2.9.2"},
+      {:oban, "~> 2.14.1"},
 
       {:cachex, "~> 3.4.0"},
 
